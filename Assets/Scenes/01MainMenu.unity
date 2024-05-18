@@ -1555,12 +1555,12 @@ GameObject:
   - component: {fileID: 1884933992}
   - component: {fileID: 1884933991}
   m_Layer: 5
-  m_Name: Cover
+  m_Name: "Cover_AkademiLogolar\u0131"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1884933990
 RectTransform:
   m_ObjectHideFlags: 0

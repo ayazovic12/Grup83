@@ -10,6 +10,11 @@ public class FadeEffect : MonoBehaviour
 
     // Optimize süreler: Wait 2 sn, Fade 1 sn. -Samet
 
+    void Awake()
+    {
+        imageToFade.gameObject.SetActive(true);
+    }
+    
     void Start()
     {
         StartCoroutine(StartFade(imageToFade, fadeDuration, waitDuration));

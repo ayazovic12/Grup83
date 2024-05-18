@@ -13,6 +13,6 @@ public class gecici_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        debug.Log("shdjgsdhkjak")
     }
 }

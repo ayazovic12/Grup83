@@ -158,6 +158,16 @@ public class PrometeoCarController : MonoBehaviour
       WheelFrictionCurve RRwheelFriction;
       float RRWextremumSlip;
 
+    public bool playerControlEnabled = true;
+
+    public float forwardAmount = 0;
+    public float turnAmount = 0;
+
+    public void SetInputs(float forwardAmount, float turnAmount) {
+        this.forwardAmount = forwardAmount;
+        this.turnAmount = turnAmount;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -287,7 +297,7 @@ public class PrometeoCarController : MonoBehaviour
       In this part of the code we specify what the car needs to do if the user presses W (throttle), S (reverse),
       A (turn left), D (turn right) or Space bar (handbrake).
       */
-      if (useTouchControls && touchControlsSetup){
+      if (useTouchControls && touchControlsSetup && playerControlEnabled){
 
         if(throttlePTI.buttonPressed){
           CancelInvoke("DecelerateCar");
@@ -325,7 +335,7 @@ public class PrometeoCarController : MonoBehaviour
           ResetSteeringAngle();
         }
 
-      }else{
+      }else if (playerControlEnabled){
 
         if(Input.GetKey(KeyCode.W)){
           CancelInvoke("DecelerateCar");
@@ -364,6 +374,36 @@ public class PrometeoCarController : MonoBehaviour
         }
 
       }
+      else {
+            if (forwardAmount == 1) {
+                CancelInvoke("DecelerateCar");
+                deceleratingCar = false;
+                GoForward();
+            }
+            if (forwardAmount == -1) {
+                CancelInvoke("DecelerateCar");
+                deceleratingCar = false;
+                GoReverse();
+            }
+
+            if (turnAmount == -1) {
+                TurnLeft();
+            }
+            if (turnAmount == 1) {
+                TurnRight();
+            }
+
+            if (forwardAmount == 0) {
+                ThrottleOff();
+            }
+            if (forwardAmount == 0 &&!deceleratingCar) {
+                InvokeRepeating("DecelerateCar", 0f, 0.1f);
+                deceleratingCar = true;
+            }
+            if (turnAmount == 0 && steeringAxis != 0f) {
+                ResetSteeringAngle();
+            }
+        }
 
 
       // We call the method AnimateWheelMeshes() in order to match the wheel collider movements with the 3D meshes of the wheels.

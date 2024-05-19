@@ -1,0 +1,56 @@
+{
+    "My Behavior": {
+        "checkpoints": [
+            {
+                "steps": 322176,
+                "file_path": "results\\ppo\\My Behavior\\My Behavior-322176.onnx",
+                "reward": null,
+                "creation_time": 1716102170.8570068,
+                "auxillary_file_paths": [
+                    "results\\ppo\\My Behavior\\My Behavior-322176.pt"
+                ]
+            },
+            {
+                "steps": 322176,
+                "file_path": "results\\ppo\\My Behavior\\My Behavior-322176.onnx",
+                "reward": null,
+                "creation_time": 1716102355.2533731,
+                "auxillary_file_paths": [
+                    "results\\ppo\\My Behavior\\My Behavior-322176.pt"
+                ]
+            },
+            {
+                "steps": 381952,
+                "file_path": "results\\ppo\\My Behavior\\My Behavior-381952.onnx",
+                "reward": null,
+                "creation_time": 1716102708.5231493,
+                "auxillary_file_paths": [
+                    "results\\ppo\\My Behavior\\My Behavior-381952.pt"
+                ]
+            },
+            {
+                "steps": 458656,
+                "file_path": "results\\ppo\\My Behavior\\My Behavior-458656.onnx",
+                "reward": -15.950000882148743,
+                "creation_time": 1716103123.0565104,
+                "auxillary_file_paths": [
+                    "results\\ppo\\My Behavior\\My Behavior-458656.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 458656,
+            "file_path": "results\\ppo\\My Behavior.onnx",
+            "reward": -15.950000882148743,
+            "creation_time": 1716103123.0565104,
+            "auxillary_file_paths": [
+                "results\\ppo\\My Behavior\\My Behavior-458656.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.2.2+cu121"
+    }
+}

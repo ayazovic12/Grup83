@@ -7,12 +7,14 @@ public class ReadySteadyGo : MonoBehaviour
 {
     public TextMeshProUGUI countdownText;
     public GameObject StartPanelToDeactivate;
+    public GameObject inGamePanelToActivate;
     public Image PanelOverlayImage;
-    [SerializeField] private MonoBehaviour PlayerControlsToToggle; // Add this line
+    public AudioSource inGameAudioSource;
+    [SerializeField] private MonoBehaviour PlayerControlsToToggle;
 
     private void Start()
     {
-        PlayerControlsToToggle.enabled = false; // Deactivate the script on start
+        PlayerControlsToToggle.enabled = false;
         StartCoroutine(Countdown());
     }
 
@@ -32,9 +34,11 @@ public class ReadySteadyGo : MonoBehaviour
         yield return new WaitForSeconds(1);
         countdownText.text = "Go!";
         UpdateImageAlpha(0f);
+        inGameAudioSource.Play();
         yield return new WaitForSeconds(1);
+        inGamePanelToActivate.SetActive(true);
         StartPanelToDeactivate.SetActive(false);
-        PlayerControlsToToggle.enabled = true; // Activate the script after "Go!" text
+        PlayerControlsToToggle.enabled = true;
     }
 
     void UpdateImageAlpha(float alpha)

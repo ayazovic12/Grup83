@@ -6,18 +6,7 @@ using UnityEngine;
 public class CollectCoinPls : MonoBehaviour
 {
     public int value = 5;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private AudioSource coinSound;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -25,6 +14,7 @@ public class CollectCoinPls : MonoBehaviour
         {
             Destroy(gameObject);
             CountCoinsPls.instance.ChangeCoinCount(value);
+            coinSound.Play();
         }
     }
 }
